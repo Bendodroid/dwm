@@ -229,6 +229,7 @@ static void run(void);
 static void scan(void);
 static int sendevent(Window w, Atom proto, int m, long d0, long d1, long d2, long d3, long d4);
 static void sendmon(Client *c, Monitor *m);
+static void setcentered(const Arg *arg);
 static void setclientstate(Client *c, long state);
 static void setfocus(Client *c);
 static void setfullscreen(Client *c, int fullscreen);
@@ -1649,6 +1650,19 @@ sendmon(Client *c, Monitor *m)
 	attachstack(c);
 	focus(NULL);
 	arrange(NULL);
+}
+
+void
+setcentered(const Arg *arg)
+{
+       if (!selmon->sel)
+               return;
+       selmon->sel->iscentered = !selmon->sel->isfixed;
+       if (selmon->sel->iscentered) {
+               selmon->sel->x = selmon->sel->mon->mx + (selmon->sel->mon->mw - WIDTH(selmon->sel)) / 2;
+               selmon->sel->y = selmon->sel->mon->my + (selmon->sel->mon->mh - HEIGHT(selmon->sel)) / 2;
+       }
+       arrange(selmon);
 }
 
 void
