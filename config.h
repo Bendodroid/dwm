@@ -137,3 +137,33 @@ static Button buttons[] = {
 	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
 };
 
+/* signal definitions */
+/* signum must be greater than 0 */
+/* trigger signals using `xsetroot -name "fsignal:<signame> [<type> <value>]"` */
+static Signal signals[] = {
+	/* signum           function */
+	//{ "focusstack",     focusstack },
+	//{ "setmfact",       setmfact },
+	//{ "togglebar",      togglebar },
+	//{ "incnmaster",     incnmaster },
+	//{ "togglefloating", togglefloating },
+	//{ "focusmon",       focusmon },
+	//{ "tagmon",         tagmon },
+	//{ "zoom",           zoom },
+	//{ "view",           view },
+	//{ "viewall",        viewall },
+	//{ "viewex",         viewex },
+	//{ "toggleview",     view },
+	//{ "toggleviewex",   toggleviewex },
+	//{ "tag",            tag },
+	//{ "tagall",         tagall },
+	//{ "tagex",          tagex },
+	//{ "toggletag",      tag },
+	//{ "toggletagex",    toggletagex },
+	//{ "killclient",     killclient },
+	//{ "quit",           quit },
+	//{ "setlayout",      setlayout },
+	//{ "setlayoutex",    setlayoutex },
+	{ "xrdb",		xrdb },
+};
+
